@@ -5,6 +5,10 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 
+/**
+ * The navbar of the page
+ * @returns JSX Element representing the Header
+ */
 const Header = () => {
   return (
     <header>

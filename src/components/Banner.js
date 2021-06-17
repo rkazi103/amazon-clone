@@ -1,6 +1,10 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+/**
+ * Represents the big banner under the header
+ * @returns JSX element showing the banner
+ */
 const Banner = () => {
   return (
     <div className="relative">
