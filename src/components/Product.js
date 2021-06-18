@@ -31,9 +31,11 @@ const Product = ({ id, title, price, description, category, image }) => {
       id,
       title,
       price,
+      rating,
       description,
       category,
       image,
+      hasPrime,
     };
 
     // Sending product as an action to redux store (basket slice)
