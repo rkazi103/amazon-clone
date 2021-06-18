@@ -2,6 +2,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
@@ -9,18 +12,33 @@ const MIN_RATING = 1;
 /**
  * Represents an individual product that sits in the product feed
  * @param {string} title title of the product
- * @param {string} price how much the product costs
+ * @param {integer} price how much the product costs
  * @param {string} description a brief overview of what the product is
  * @param {string} category what type of product is it
  * @param {string} image a visual representation of the product
- * @returns JSX Element
+ * @returns JSX Element representing individual product
  */
-const Product = ({ title, price, description, category, image }) => {
+const Product = ({ id, title, price, description, category, image }) => {
+  const dispatch = useDispatch();
+
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
-
   const [hasPrime] = useState(Math.random() < 0.5);
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+    };
+
+    // Sending product as an action to redux store (basket slice)
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
@@ -53,9 +71,20 @@ const Product = ({ title, price, description, category, image }) => {
         </div>
       )}
 
-      <button className="mt-auto button">Add to Basket</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Basket
+      </button>
     </div>
   );
+};
+
+Product.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string,
+  category: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default Product;

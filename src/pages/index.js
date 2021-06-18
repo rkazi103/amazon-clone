@@ -8,6 +8,15 @@ export default function Home({ products }) {
     <div className="bg-gray-100">
       <Head>
         <title>Amazon Clone</title>
+        <meta
+          name="description"
+          content="The Amazon Clone created using NextJS, Tailwind CSS, Redux, and many other technologies"
+        />
+        <meta name="author" content="Rayan Kazi" />
+        <meta
+          name="keywords"
+          content="Next JS, Tailwind CSS, Redux, Stripe, Amazon"
+        />
       </Head>
 
       <Header />
