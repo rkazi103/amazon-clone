@@ -21,7 +21,7 @@ const Orders = ({ orders }) => {
         </h1>
 
         {session ? (
-          <h2>x orders</h2>
+          <h2>{orders.length} order(s)</h2>
         ) : (
           <h2>Please sign in to see your orders</h2>
         )}
@@ -86,6 +86,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       orders: orders,
+      session: session,
     },
   };
 }

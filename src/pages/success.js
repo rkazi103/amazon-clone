@@ -7,6 +7,8 @@ import Header from "../components/Header";
  * @returns JSX element representing the success page
  */
 const Success = () => {
+  const router = useRouter();
+
   return (
     <div className="bg-gray-100 h-screen">
       <Header />
