@@ -2,9 +2,11 @@ import { CheckCircleIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 
-export default function Success() {
-  const router = useRouter();
-
+/**
+ * the success page once an order has been placed
+ * @returns JSX element representing the success page
+ */
+const Success = () => {
   return (
     <div className="bg-gray-100 h-screen">
       <Header />
@@ -33,4 +35,6 @@ export default function Success() {
       </main>
     </div>
   );
-}
+};
+
+export default Success;

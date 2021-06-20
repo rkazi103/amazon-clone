@@ -10,7 +10,11 @@ import axios from "axios";
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
-export default function Checkout() {
+/**
+ * the Checkout page
+ * @returns JSX representing the checkout page
+ */
+const Checkout = () => {
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
   const [session] = useSession();
@@ -111,4 +115,6 @@ export default function Checkout() {
       </main>
     </div>
   );
-}
+};
+
+export default Checkout;

@@ -4,6 +4,15 @@ import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 
+/**
+ * Represents a product in the checkout page
+ * @param {string} title title of the product
+ * @param {integer} price how much the product costs
+ * @param {string} description a brief overview of what the product is
+ * @param {string} category what type of product is it
+ * @param {string} image a visual representation of the product
+ * @returns JSX Element representing individual product
+ */
 const CheckoutProduct = ({
   id,
   title,
